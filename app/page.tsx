@@ -12,6 +12,7 @@ import FAQ from '@/components/FAQ';
 import BookAppointment from '@/components/BookAppointment';
 import Footer from '@/components/Footer';
 import FixedBook from '@/components/FixedBook';
+import MobileCallOverlay from '@/components/MobileCallOverlay';
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
       </div>
       <Footer />
       <FixedBook />
+      <MobileCallOverlay />
     </div>
   );
 }

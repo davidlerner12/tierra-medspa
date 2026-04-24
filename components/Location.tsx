@@ -41,9 +41,9 @@ export default function Location() {
                   </a>
                 </div>
                 <div className="location_button-group">
-                  <a href="/scheduling" target="_blank" rel="noopener" className="button button-green">
+                  <a href="tel:+18888341049" className="button button-green">
                     <div className="button_body body-hero">
-                      <div className="text-size-regular text-weight-medium">Book an appointment</div>
+                      <div className="text-size-regular text-weight-medium">Call Now</div>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={ARROW_BTN} alt="" className="button_arrow" loading="lazy" />
                     </div>
