@@ -54,9 +54,9 @@ export default function Hero() {
               </div>
 
               <div className="hero_button-group">
-                <a href="/scheduling" target="_blank" rel="noopener" className="button button-hero">
+                <a href="tel:+18888341049" className="button button-hero">
                   <div className="button_body">
-                    <span className="text-size-large">Book an appointment</span>
+                    <span className="text-size-large">Call Now</span>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={ARROW_SVG} alt="" className="button_arrow" />
                   </div>

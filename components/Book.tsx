@@ -63,9 +63,9 @@ export default function Book() {
                       <div className="text-size-regular text-weight-bold">Limited time offer</div>
                     </div>
                   </div>
-                  <a href="/scheduling" className="button button-green">
+                  <a href="tel:+18888341049" className="button button-green">
                     <div className="button_body body-hero">
-                      <div className="text-size-small">Book an appointment</div>
+                      <div className="text-size-small">Call Now</div>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={ARROW_BTN} alt="" className="button_arrow" loading="lazy" />
                     </div>

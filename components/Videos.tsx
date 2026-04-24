@@ -1,13 +1,9 @@
 'use client';
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 const PLAY_ICON = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa748_Group%2046805046.svg';
 
 const VIDEOS = [
-  {
-    src: 'https://Growbi.b-cdn.net/Mindy%20-%20LED.mp4',
-    poster: 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/679bae15b147a4754c2595d7_Mindy%20feedback%20.png',
-  },
   {
     src: 'https://Growbi.b-cdn.net/EMS%20-%20KIM.mov',
     poster: 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/679bae03f0a1aa7ada498f74_Kim%20Facial%20Feedback.png',
@@ -26,43 +22,58 @@ const VIDEOS = [
   },
 ];
 
-function VideoItem({ video, index }: { video: { src: string; poster: string }; index: number }) {
-  const [playing, setPlaying] = useState(false);
+function VideoItem({
+  video,
+  isPlaying,
+  onPlay,
+  onPause,
+}: {
+  video: { src: string; poster: string };
+  isPlaying: boolean;
+  onPlay: () => void;
+  onPause: () => void;
+}) {
   const ref = useRef<HTMLVideoElement>(null);
 
-  const handlePlayClick = () => {
+  const handlePlayClick = useCallback(() => {
     if (!ref.current) return;
     ref.current.play();
-    setPlaying(true);
-  };
+    onPlay();
+  }, [onPlay]);
 
-  const handlePauseClick = () => {
+  const handlePauseClick = useCallback(() => {
     if (!ref.current) return;
     ref.current.pause();
-    setPlaying(false);
-  };
+    onPause();
+  }, [onPause]);
 
-  const handleMouseLeave = () => {
-    if (!ref.current) return;
+  const handleVideoEnd = useCallback(() => {
+    onPause();
+  }, [onPause]);
+
+  // Pause the actual video element when parent says we're no longer active
+  // This handles the case where another video started playing
+  if (!isPlaying && ref.current && !ref.current.paused) {
     ref.current.pause();
-    setPlaying(false);
-  };
+  }
 
   return (
-    <div className="videos_cms-item" onMouseLeave={handleMouseLeave}>
+    <div className="videos_cms-item">
       <div className="videos_item-body">
         <div className="videos_vimeo-embed">
           <div className="video-block">
             <video
               ref={ref}
               playsInline
+              preload="none"
+              onEnded={handleVideoEnd}
               style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
             >
               <source src={video.src} type="video/mp4" />
             </video>
           </div>
         </div>
-        {!playing && (
+        {!isPlaying && (
           <div className="videos_play-button" onClick={handlePlayClick}>
             <div
               className="videos_preview-photo"
@@ -74,7 +85,7 @@ function VideoItem({ video, index }: { video: { src: string; poster: string }; i
             </div>
           </div>
         )}
-        {playing && (
+        {isPlaying && (
           <div className="videos_pause-button" onClick={handlePauseClick} />
         )}
       </div>
@@ -83,6 +94,9 @@ function VideoItem({ video, index }: { video: { src: string; poster: string }; i
 }
 
 export default function Videos() {
+  // Track which video index is currently playing (-1 = none)
+  const [activeIndex, setActiveIndex] = useState(-1);
+
   return (
     <section className="section_videos">
       <div className="videos_container">
@@ -90,7 +104,15 @@ export default function Videos() {
           <div className="videos_cms-body">
             <div className="videos_cms-list">
               {VIDEOS.map((video, i) => (
-                <VideoItem key={i} video={video} index={i} />
+                <VideoItem
+                  key={i}
+                  video={video}
+                  isPlaying={activeIndex === i}
+                  onPlay={() => setActiveIndex(i)}
+                  onPause={() => {
+                    if (activeIndex === i) setActiveIndex(-1);
+                  }}
+                />
               ))}
             </div>
           </div>

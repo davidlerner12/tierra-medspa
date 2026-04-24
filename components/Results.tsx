@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 const ARROW_PREV = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa732_arrow-next-svgrepo-com%201.svg';
 const ARROW_NEXT = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa734_arrow-next-svgrepo-com%202.svg';
@@ -15,22 +15,42 @@ const RESULTS = [
   'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa825_eb0de1d8-28e8-4749-9930-892533fdde88.JPG',
 ];
 
-// Show 3 at a time on desktop
-const ITEMS_PER_PAGE = 3;
+// Responsive items per page
+function useItemsPerPage() {
+  const [items, setItems] = useState(3);
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth <= 479) setItems(1);
+      else if (window.innerWidth <= 768) setItems(2);
+      else setItems(3);
+    };
+    update();
+    window.addEventListener('resize', update, { passive: true });
+    return () => window.removeEventListener('resize', update);
+  }, []);
+  return items;
+}
 
 export default function Results() {
+  const itemsPerPage = useItemsPerPage();
   const [page, setPage] = useState(0);
-  const totalPages = Math.ceil(RESULTS.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(RESULTS.length / itemsPerPage);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  const prev = () => setPage(p => (p - 1 + totalPages) % totalPages);
-  const next = () => setPage(p => (p + 1) % totalPages);
+  // Reset page when items per page changes
+  useEffect(() => {
+    setPage(0);
+  }, [itemsPerPage]);
 
-  const visible = RESULTS.slice(page * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE + ITEMS_PER_PAGE);
+  const prev = useCallback(() => setPage(p => (p - 1 + totalPages) % totalPages), [totalPages]);
+  const next = useCallback(() => setPage(p => (p + 1) % totalPages), [totalPages]);
+
+  const visible = RESULTS.slice(page * itemsPerPage, page * itemsPerPage + itemsPerPage);
   // pad if last page has fewer items
-  const padded = [...visible, ...RESULTS.slice(0, ITEMS_PER_PAGE - visible.length)].slice(0, ITEMS_PER_PAGE);
+  const padded = [...visible, ...RESULTS.slice(0, itemsPerPage - visible.length)].slice(0, itemsPerPage);
 
   return (
-    <section id="testimonials" className="section_result">
+    <section className="section_result">
       <div className="result-section-padding">
         <div className="result_title">
           <h2 className="result_header-text">
@@ -46,14 +66,19 @@ export default function Results() {
         <div className="result_cms-body">
           <div className="result_carousel">
             <div
+              ref={trackRef}
               className="result_track"
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: `repeat(${itemsPerPage}, 1fr)`,
+                gap: itemsPerPage === 1 ? '12px' : '24px',
+              }}
             >
               {padded.map((src, i) => (
-                <div key={i} className="result_cms-item">
+                <div key={`${page}-${i}`} className="result_cms-item">
                   <div className="result_item-body">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={src} alt={`Result ${page * ITEMS_PER_PAGE + i + 1}`} className="result_image" loading="lazy" />
+                    <img src={src} alt={`Result ${page * itemsPerPage + i + 1}`} className="result_image" loading="lazy" />
                     <div className="result_overlay">
                       <div className="result_overlay-row">
                         <div className="result_row row-before">
@@ -93,9 +118,9 @@ export default function Results() {
         </div>
 
         <div className="result_button">
-          <a href="/scheduling" target="_blank" rel="noopener" className="button button-green">
+          <a href="tel:+18888341049" className="button button-green">
             <div className="button_body">
-              <span className="btn-text-small">Book an appointment now</span>
+              <span className="btn-text-small">Call Now</span>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={ARROW_BTN} alt="" className="button_arrow" />
             </div>

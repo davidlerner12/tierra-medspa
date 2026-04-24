@@ -32,7 +32,7 @@ export default function Partners() {
   }, []);
 
   return (
-    <section className="section_partners">
+    <section id="testimonials" className="section_partners">
       <div className="partners-section-padding">
         {/* Elfsight Google Reviews Widget Placeholder */}
         <div className="elfsight-widget-placeholder">

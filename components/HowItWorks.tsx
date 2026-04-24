@@ -57,9 +57,9 @@ export default function HowItWorks() {
               ))}
             </div>
             <div className="works_button">
-              <a href="/scheduling" target="_blank" rel="noopener" className="button button-green">
+              <a href="tel:+18888341049" className="button button-green">
                 <div className="button_body">
-                  <span className="text-size-small">Book an appointment now</span>
+                  <span className="text-size-small">Call Now</span>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={ARROW_BTN} alt="" className="button_arrow" />
                 </div>
