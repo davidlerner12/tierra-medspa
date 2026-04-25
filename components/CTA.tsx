@@ -11,10 +11,10 @@ export default function CTA() {
           Join over 15,000 satisfied clients. Try your first LED non-surgical facelift facial
           for just $79.99. Guaranteed results — or the treatment is on us.
         </p>
-        <a href="tel:+18888341049" className="button button-white">
+        <a href="#" className="button button-white" data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>
           <div className="button_body">
             <span className="btn-text-large" style={{ color: 'var(--color-dark-green)' }}>
-              Call Now
+              Book Appointment
             </span>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

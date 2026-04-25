@@ -57,9 +57,9 @@ export default function HowItWorks() {
               ))}
             </div>
             <div className="works_button">
-              <a href="tel:+18888341049" className="button button-green">
+              <a href="#" className="button button-green" data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>
                 <div className="button_body">
-                  <span className="text-size-small">Call Now</span>
+                  <span className="text-size-small">Book Appointment</span>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={ARROW_BTN} alt="" className="button_arrow" />
                 </div>

@@ -7,21 +7,16 @@ export default function MobileCallOverlay() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Only show on mobile screens
-    if (window.innerWidth <= 768) {
+    const timer = setTimeout(() => {
       setVisible(true);
-      // Lock body scroll
       document.body.style.overflow = 'hidden';
-    }
+    }, 20000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClose = () => {
     setVisible(false);
-    document.body.style.overflow = '';
-  };
-
-  const handleCall = () => {
-    // Don't close — let the tel: link open the dialer
     document.body.style.overflow = '';
   };
 
@@ -50,19 +45,28 @@ export default function MobileCallOverlay() {
           </h2>
 
           <p className="mobile-call-subtitle">
-            Call us now to book your first LED non-surgical facelift facial for just <strong>$79.99</strong>
+            Book your first LED non-surgical facelift facial for just <strong>$79.99</strong>
           </p>
 
-          <a
-            href={PHONE_NUMBER}
+          <button
             className="mobile-call-button"
-            onClick={handleCall}
+            data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            onClick={(e) => {
+              // Delay close to allow Cal.com event delegation to fire
+              setTimeout(() => {
+                handleClose();
+              }, 500);
+            }}
+            style={{ border: 'none', cursor: 'pointer', fontFamily: 'inherit', width: '100%', display: 'flex' }}
           >
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
-            <span>Call Now</span>
-          </a>
+            <span>Book Appointment</span>
+          </button>
 
           <div className="mobile-call-number">+1 (888) 834-1049</div>
 
