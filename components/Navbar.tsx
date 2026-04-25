@@ -54,7 +54,7 @@ export default function Navbar() {
               <a href="#faq" className="nav_menu-link">FAQ</a>
             </div>
           </nav>
-          <a href="tel:+18888341049" className="nav_button desktop" style={{ display: 'flex' }}>Call Now</a>
+          <a href="#" className="nav_button desktop" style={{ display: 'flex' }} data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book Appointment</a>
           <button
             className="nav_burger"
             onClick={() => setMenuOpen(o => !o)}
@@ -72,7 +72,7 @@ export default function Navbar() {
         <a href="#testimonials" onClick={closeMenu}>Testimonials</a>
         <a href="#about-us" onClick={closeMenu}>About Us</a>
         <a href="#faq" onClick={closeMenu}>FAQ</a>
-        <a href="tel:+18888341049" onClick={closeMenu} style={{ color: 'var(--color-dark-green)', fontWeight: 600, marginTop: '0.5rem' }}>Call Now →</a>
+        <a href="#" onClick={closeMenu} data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' style={{ color: 'var(--color-dark-green)', fontWeight: 600, marginTop: '0.5rem' }}>Book Appointment →</a>
       </div>
     </>
   );

@@ -54,9 +54,9 @@ export default function Hero() {
               </div>
 
               <div className="hero_button-group">
-                <a href="tel:+18888341049" className="button button-hero">
+                <a href="#" className="button button-hero" data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>
                   <div className="button_body">
-                    <span className="text-size-large">Call Now</span>
+                    <span className="text-size-large">Book Appointment</span>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={ARROW_SVG} alt="" className="button_arrow" />
                   </div>

@@ -3,9 +3,9 @@ const ARROW_BTN = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6
 export default function FixedBook() {
   return (
     <div className="fixed-book">
-      <a href="tel:+18888341049" className="button button-green">
+      <a href="#" className="button button-green" data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>
         <div className="button_body body-green body-padding-result body-fixed">
-          <div className="text-size-small text-weight-medium">Call Now</div>
+          <div className="text-size-small text-weight-medium">Book Appointment</div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={ARROW_BTN} alt="" className="button_arrow" loading="lazy" />
         </div>
