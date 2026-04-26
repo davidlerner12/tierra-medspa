@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-const PHONE_NUMBER = 'tel:9022173012';
+const PHONE_NUMBER = 'tel:2892173012';
 
 export default function MobileCallOverlay() {
   const [visible, setVisible] = useState(false);
@@ -64,7 +64,7 @@ export default function MobileCallOverlay() {
             <span>Book Appointment</span>
           </Link>
 
-          <div className="mobile-call-number">(902) 217-3012</div>
+          <div className="mobile-call-number">(289) 217-3012</div>
 
           <button className="mobile-call-skip" onClick={handleClose}>
             Continue to website →
