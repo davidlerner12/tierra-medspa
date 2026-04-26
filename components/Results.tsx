@@ -3,16 +3,16 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 
 const ARROW_PREV = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa732_arrow-next-svgrepo-com%201.svg';
 const ARROW_NEXT = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa734_arrow-next-svgrepo-com%202.svg';
+import Link from 'next/link';
+
 const ARROW_BTN = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa735_Arrow%20-%20Right%20Up%20(2).svg';
 
 const RESULTS = [
-  'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa81f_fe393f6b-6414-4459-99a6-d39b3d377b6d.JPG',
-  'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa820_6dbdbac3-47ea-432e-92e4-805518dbeade.JPG',
-  'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa821_8a7bd09a-a169-4fb6-8187-c600a00c5704.JPG',
-  'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa826_5f955c32-d390-4cfc-a1ab-3670580800ba.JPG',
-  'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa823_a9a476be-55af-4ae1-b0ea-509388f0d3ce.JPG',
-  'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa822_52f45bc4-b2df-4424-8d04-792ac271304f.JPG',
-  'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa825_eb0de1d8-28e8-4749-9930-892533fdde88.JPG',
+  '/images/before-after1.png',
+  '/images/before-after2.png',
+  '/images/before-after3.png',
+  '/images/before-after4.png',
+  '/images/before-after5.png',
 ];
 
 // Responsive items per page
@@ -118,13 +118,13 @@ export default function Results() {
         </div>
 
         <div className="result_button">
-          <a href="#" className="button button-green" data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>
+          <Link href="/book" className="button button-green">
             <div className="button_body">
               <span className="btn-text-small">Book Appointment</span>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={ARROW_BTN} alt="" className="button_arrow" />
+              <img src={ARROW_BTN} alt="" className="button_arrow" loading="lazy" />
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

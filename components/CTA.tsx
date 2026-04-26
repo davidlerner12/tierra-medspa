@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const ARROW_BTN = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa735_Arrow%20-%20Right%20Up%20(2).svg';
 
 export default function CTA() {
@@ -11,7 +13,7 @@ export default function CTA() {
           Join over 15,000 satisfied clients. Try your first LED non-surgical facelift facial
           for just $79.99. Guaranteed results — or the treatment is on us.
         </p>
-        <a href="#" className="button button-white" data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>
+        <Link href="/book" className="button button-white">
           <div className="button_body">
             <span className="btn-text-large" style={{ color: 'var(--color-dark-green)' }}>
               Book Appointment
@@ -24,7 +26,7 @@ export default function CTA() {
               style={{ filter: 'invert(30%) sepia(30%) saturate(500%) hue-rotate(70deg)' }}
             />
           </div>
-        </a>
+        </Link>
         <p style={{ marginTop: '1.5rem', fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>
           No pre-payment required &nbsp;·&nbsp; 100% satisfaction guaranteed &nbsp;·&nbsp; Zero downtime
         </p>

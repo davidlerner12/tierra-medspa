@@ -4,6 +4,8 @@ import Image from 'next/image';
 
 const LOGO = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/67593a03bcdc0f36f2d86688_download-removebg-preview%20(1).jpg';
 
+import Link from 'next/link';
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -54,7 +56,7 @@ export default function Navbar() {
               <a href="#faq" className="nav_menu-link">FAQ</a>
             </div>
           </nav>
-          <a href="#" className="nav_button desktop" style={{ display: 'flex' }} data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book Appointment</a>
+          <Link href="/book" className="nav_button desktop" style={{ display: 'flex' }}>Book Appointment</Link>
           <button
             className="nav_burger"
             onClick={() => setMenuOpen(o => !o)}
@@ -72,7 +74,7 @@ export default function Navbar() {
         <a href="#testimonials" onClick={closeMenu}>Testimonials</a>
         <a href="#about-us" onClick={closeMenu}>About Us</a>
         <a href="#faq" onClick={closeMenu}>FAQ</a>
-        <a href="#" onClick={closeMenu} data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' style={{ color: 'var(--color-dark-green)', fontWeight: 600, marginTop: '0.5rem' }}>Book Appointment →</a>
+        <Link href="/book" onClick={closeMenu} style={{ color: 'var(--color-dark-green)', fontWeight: 600, marginTop: '0.5rem' }}>Book Appointment →</Link>
       </div>
     </>
   );
