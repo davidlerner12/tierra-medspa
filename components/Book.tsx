@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const ARROW_BTN = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa735_Arrow%20-%20Right%20Up%20(2).svg';
 const BOOK_IMAGE = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa77a_WhatsApp%20Image%202024-10-21%20at%2018.29.27.jpeg';
 const LIMITED_ICON = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa747_Frame%20526.svg';
@@ -63,13 +65,13 @@ export default function Book() {
                       <div className="text-size-regular text-weight-bold">Limited time offer</div>
                     </div>
                   </div>
-                  <a href="#" className="button button-green" data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>
+                  <Link href="/book" className="button button-green">
                     <div className="button_body body-hero">
                       <div className="text-size-small">Book Appointment</div>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={ARROW_BTN} alt="" className="button_arrow" loading="lazy" />
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

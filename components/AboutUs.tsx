@@ -1,7 +1,5 @@
 'use client';
 
-const SPA_VIDEO_MP4 = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa77b_spa1-transcode.mp4';
-const SPA_VIDEO_WEBM = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa77b_spa1-transcode.webm';
 const SPA_POSTER = 'https://cdn.prod.website-files.com/66daa88ccad83d34f9d92a9f%2F6718c9fb7044fb9ee852ea74_spa1-poster-00001.jpg';
 const RATING_STAR = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa72c_Frame%20118.svg';
 const GOOGLE_LOGO = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa765_image%2022%20(1).png';
@@ -26,8 +24,7 @@ export default function AboutUs() {
                     poster={SPA_POSTER}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   >
-                    <source src={SPA_VIDEO_MP4} type="video/mp4" />
-                    <source src={SPA_VIDEO_WEBM} type="video/webm" />
+                    <source src="/videos/Gloved_hand_moving_202604252018.mp4" type="video/mp4" />
                   </video>
                 </div>
               </div>

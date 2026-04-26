@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import './globals.css';
-import CalBookingModal from '@/components/CalBookingModal';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -45,7 +44,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
         {children}
-        <CalBookingModal />
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 

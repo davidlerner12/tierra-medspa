@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const ARROW_BTN = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa735_Arrow%20-%20Right%20Up%20(2).svg';
 const LED_IMAGE = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa769_Frame%20527.png';
 const BULLET_1 = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa745_Frame%20522.svg';
@@ -57,13 +59,13 @@ export default function HowItWorks() {
               ))}
             </div>
             <div className="works_button">
-              <a href="#" className="button button-green" data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>
+              <Link href="/book" className="button button-green">
                 <div className="button_body">
                   <span className="text-size-small">Book Appointment</span>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={ARROW_BTN} alt="" className="button_arrow" />
+                  <img src={ARROW_BTN} alt="" className="button_arrow" loading="lazy" />
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
 

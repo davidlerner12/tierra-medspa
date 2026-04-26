@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const ARROW_BTN = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa735_Arrow%20-%20Right%20Up%20(2).svg';
 const LOCATION_PIN = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa730_location-pin-svgrepo-com%20(2)%201.svg';
 const PHONE_ICON = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa74c_phone-svgrepo-com%201.svg';
@@ -41,13 +43,13 @@ export default function Location() {
                   </a>
                 </div>
                 <div className="location_button-group">
-                  <a href="#" className="button button-green" data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>
+                  <Link href="/book" className="button button-green">
                     <div className="button_body body-hero">
                       <div className="text-size-regular text-weight-medium">Book Appointment</div>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={ARROW_BTN} alt="" className="button_arrow" loading="lazy" />
                     </div>
-                  </a>
+                  </Link>
                   <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener" className="button button-green button-outline">
                     <div className="button_body body_direction">
                       <div className="text-size-regular text-weight-medium text-color-green-btn">Get directions</div>

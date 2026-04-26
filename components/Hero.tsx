@@ -1,7 +1,7 @@
 'use client';
 
-const HERO_VIDEO_MP4 = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa766_garden_opener%20(1080p)-transcode.mp4';
-const HERO_VIDEO_WEBM = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa766_garden_opener%20(1080p)-transcode.webm';
+import Link from 'next/link';
+
 const HERO_POSTER = 'https://cdn.prod.website-files.com/66daa88ccad83d34f9d92a9f%2F66ebefcfc7fc6a4e202f09c0_garden_opener%20%281080p%29-poster-00001.jpg';
 const ARROW_SVG = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa735_Arrow%20-%20Right%20Up%20(2).svg';
 const LIMITED_ICON = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa747_Frame%20526.svg';
@@ -21,8 +21,7 @@ export default function Hero() {
               poster={HERO_POSTER}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             >
-              <source src={HERO_VIDEO_MP4} type="video/mp4" />
-              <source src={HERO_VIDEO_WEBM} type="video/webm" />
+              <source src="/videos/Esthetician_hand_guiding_202604252017.mp4" type="video/mp4" />
             </video>
           </div>
           <div className="hero_overlay" />
@@ -54,13 +53,13 @@ export default function Hero() {
               </div>
 
               <div className="hero_button-group">
-                <a href="#" className="button button-hero" data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>
+                <Link href="/book" className="button button-hero">
                   <div className="button_body">
                     <span className="text-size-large">Book Appointment</span>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={ARROW_SVG} alt="" className="button_arrow" />
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

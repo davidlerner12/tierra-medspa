@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const PHONE_NUMBER = 'tel:+18888341049';
 
@@ -48,16 +49,11 @@ export default function MobileCallOverlay() {
             Book your first LED non-surgical facelift facial for just <strong>$79.99</strong>
           </p>
 
-          <button
+          <Link
+            href="/book"
             className="mobile-call-button"
-            data-cal-link="david/led-facelift" data-cal-namespace="led-facelift" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-            onClick={(e) => {
-              // Delay close to allow Cal.com event delegation to fire
-              setTimeout(() => {
-                handleClose();
-              }, 500);
-            }}
-            style={{ border: 'none', cursor: 'pointer', fontFamily: 'inherit', width: '100%', display: 'flex' }}
+            onClick={handleClose}
+            style={{ border: 'none', cursor: 'pointer', fontFamily: 'inherit', width: '100%', display: 'flex', textDecoration: 'none' }}
           >
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -66,7 +62,7 @@ export default function MobileCallOverlay() {
               <line x1="3" y1="10" x2="21" y2="10" />
             </svg>
             <span>Book Appointment</span>
-          </button>
+          </Link>
 
           <div className="mobile-call-number">+1 (888) 834-1049</div>
 
