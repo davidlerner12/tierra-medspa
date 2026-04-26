@@ -36,10 +36,10 @@ export default function Location() {
                     <img src={LOCATION_PIN} alt="" className="location_icon" loading="lazy" />
                     <div className="text-size-regular text-weight-medium">1912 Queen St E, Toronto</div>
                   </a>
-                  <a href="tel:+16475035068" className="location_row">
+                  <a href="tel:9022173012" className="location_row">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={PHONE_ICON} alt="" className="location_icon" loading="lazy" />
-                    <div className="text-size-regular text-weight-medium text-border-bottom">+1 (647) 503-5068</div>
+                    <div className="text-size-regular text-weight-medium text-border-bottom">(902) 217-3012</div>
                   </a>
                 </div>
                 <div className="location_button-group">
