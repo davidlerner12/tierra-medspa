@@ -1,6 +1,14 @@
+'use client';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 export default function ThankYouPage() {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Schedule');
+    }
+  }, []);
+
   return (
     <div style={{ 
       minHeight: '100vh', 

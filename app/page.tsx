@@ -3,7 +3,6 @@ import Hero from '@/components/Hero';
 import Results from '@/components/Results';
 import HowItWorks from '@/components/HowItWorks';
 import Partners from '@/components/Partners';
-import Videos from '@/components/Videos';
 import AboutUs from '@/components/AboutUs';
 import Gallery from '@/components/Gallery';
 import Location from '@/components/Location';
@@ -23,7 +22,6 @@ export default function Home() {
         <Results />
         <HowItWorks />
         <Partners />
-        <Videos />
         <AboutUs />
         <Gallery />
         <Location />

@@ -52,11 +52,11 @@ export default function Footer() {
                       <div className="text-size-small text-color-white text-weight-light text-custom-height">
                         1912 Queen St E, Toronto
                       </div>
-                      <a href="tel:+16475035222" className="text-size-small text-color-white text-weight-light text-custom-height text-footer-link">
-                        +1 (647) 503-5068
+                      <a href="tel:9022173012" className="text-size-small text-color-white text-weight-light text-custom-height text-footer-link">
+                        (902) 217-3012
                       </a>
-                      <a href="mailto:booking.tierramedspa@gmail.com" className="text-size-small text-color-white text-weight-light text-custom-height text-footer-link">
-                        booking.tierramedspa@gmail.com
+                      <a href="mailto:Info@tierramedspa.com" className="text-size-small text-color-white text-weight-light text-custom-height text-footer-link">
+                        Info@tierramedspa.com
                       </a>
                     </div>
                   </div>
