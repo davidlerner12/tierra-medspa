@@ -4,39 +4,38 @@ import { useState, useEffect, useCallback } from 'react';
 const ARROW_PREV = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa732_arrow-next-svgrepo-com%201.svg';
 const ARROW_NEXT = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa734_arrow-next-svgrepo-com%202.svg';
 
-// Each gallery item has 2 stacked images (matching the original site)
 const GALLERY_ITEMS = [
   [
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa81b_354105208_120378567747998_2272945108594869922_n.jpg',
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa80f_DSCF0299.jpg',
+    '/images/gallery0.png',
+    '/images/gallery.png',
   ],
   [
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa81c_DSCF0253-min.jpg',
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa81e_DSCF0220-min.jpg',
+    '/images/gallery2.png',
+    '/images/gallery3.png',
   ],
   [
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa80d_DSCF0193.jpg',
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa81d_DSCF0258-min.jpg',
+    '/images/gallery4.png',
+    '/images/gallery5.png',
   ],
   [
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa80b_DSCF0175.jpg',
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/67570a7a4156927e65ca5891_DSCF0228-min.jpg',
+    '/images/gallery6.png',
+    '/images/gallery7.png',
   ],
   [
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6759c62132bb7364ca65e157_465910459_407962519044381_8700140408915818340_n.jpg',
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa80a_DSCF0129.jpg',
+    '/images/gallery8.png',
+    '/images/gallery9.png',
   ],
   [
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/675709b69025789b37b5f8f7_463817612_915747543751405_4145407702800531495_n%20(1).jpg',
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6757096dce5ed55aaaebf62a_343981030_928057838346130_4075119892551227613_n%20(1).jpg',
+    '/images/gallery10.png',
+    '/images/gallery11.png',
   ],
   [
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6757096140098f32846a5dd8_292107353_841500623906233_4638749611905176070_n%20(1).jpg',
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6757095ae399ee4cc92e414b_445943806_750511877288619_1678360344129087066_n.jpg',
+    '/images/gallery12.png',
+    '/images/gallery13.png',
   ],
   [
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa802_DSCF0150.jpg',
-    'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa73c/6756e21effc0cd662fdaa803_DSCF0146.jpg',
+    '/images/gallery14.png',
+    '/images/gallery15.png',
   ],
 ];
 
