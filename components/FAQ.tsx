@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: 'How can I book a treatment?',
-    a: 'To book an appointment, click BOOK NOW to open our digital calendar. Select a date and time that suits you. Your booking is complete! We\'ll reach out soon to confirm your appointment and address any inquiries.\n\nIf you have any other booking inquiries, reach out us directly at (902) 217-3012, or via email at Info@tierramedspa.com\nOur offices are open from 10:00 AM - 6:00 PM,\nSunday to Friday.',
+    a: 'To book an appointment, click BOOK NOW to open our digital calendar. Select a date and time that suits you. Your booking is complete! We\'ll reach out soon to confirm your appointment and address any inquiries.\n\nIf you have any other booking inquiries, reach out us directly at (289) 217-3012, or via email at Info@tierramedspa.com\nOur offices are open from 10:00 AM - 6:00 PM,\nSunday to Friday.',
     isList: true,
   },
   {
