@@ -1,12 +1,21 @@
 'use client';
 import Link from 'next/link';
+import Script from 'next/script';
 import { useEffect } from 'react';
 
 export default function ThankYouPage() {
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Schedule');
-    }
+    // Wait for Next.js to fully hydrate and the base pixel to initialize
+    const timer = setTimeout(() => {
+      if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') {
+        console.log('Sending fbq Schedule event...');
+        (window as any).fbq('trackCustom', 'ScheduleAppointment');
+      } else {
+        console.warn('fbq not found on window');
+      }
+    }, 1000); // 1-second delay ensures the base pixel has fully loaded
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
