@@ -52,9 +52,6 @@ export default function BookPage() {
     Cal.ns["led-facelift"]("on", {
       action: "bookingSuccessful",
       callback: function () {
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Schedule');
-        }
         router.push('/thankyou');
       }
     });
