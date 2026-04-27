@@ -5,17 +5,22 @@ import { useEffect } from 'react';
 
 export default function ThankYouPage() {
   useEffect(() => {
-    // Wait for Next.js to fully hydrate and the base pixel to initialize
-    const timer = setTimeout(() => {
+    // Poll for the Facebook pixel to load (production networks can take longer than 1 second)
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts++;
       if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') {
-        console.log('Sending fbq Schedule event...');
+        console.log('Sending fbq ScheduleAppointment event...');
         (window as any).fbq('trackCustom', 'ScheduleAppointment');
-      } else {
-        console.warn('fbq not found on window');
+        clearInterval(interval);
+      } else if (attempts >= 40) {
+        // Stop checking after 10 seconds (40 * 250ms)
+        console.warn('fbq not found on window after 10 seconds');
+        clearInterval(interval);
       }
-    }, 1000); // 1-second delay ensures the base pixel has fully loaded
+    }, 250);
 
-    return () => clearTimeout(timer);
+    return () => clearInterval(interval);
   }, []);
 
   return (
