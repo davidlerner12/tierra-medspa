@@ -43,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             fbq('track', 'ViewContent');
           `}
         </Script>
+        <Script src="/call-tracking.js" strategy="afterInteractive" id="call-tracking" />
         {children}
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
