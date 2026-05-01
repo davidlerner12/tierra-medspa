@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+
 
 const HERO_POSTER = 'https://cdn.prod.website-files.com/66daa88ccad83d34f9d92a9f%2F66ebefcfc7fc6a4e202f09c0_garden_opener%20%281080p%29-poster-00001.jpg';
 const ARROW_SVG = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa735_Arrow%20-%20Right%20Up%20(2).svg';
@@ -53,13 +53,13 @@ export default function Hero() {
               </div>
 
               <div className="hero_button-group">
-                <Link href="/book" className="button button-hero">
+                <a href="tel:+18888341049" className="button button-hero">
                   <div className="button_body">
-                    <span className="text-size-large">Book Appointment</span>
+                    <span className="text-size-large">Call Now</span>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={ARROW_SVG} alt="" className="button_arrow" />
                   </div>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

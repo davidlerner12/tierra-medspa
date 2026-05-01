@@ -1,4 +1,4 @@
-import Link from 'next/link';
+
 
 const ARROW_BTN = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa735_Arrow%20-%20Right%20Up%20(2).svg';
 const BOOK_IMAGE = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa77a_WhatsApp%20Image%202024-10-21%20at%2018.29.27.jpeg';
@@ -36,7 +36,7 @@ export default function Book() {
                   <div className="book_row">
                     <div className="book_numbers">01</div>
                     <div className="text-size-large text-color-grey text-height-book">
-                      Click the <span className="text-font-playfair text-color-green">book now</span> button
+                      Click the <span className="text-font-playfair text-color-green">call now</span> button
                     </div>
                   </div>
                   <div className="book_row">
@@ -65,13 +65,13 @@ export default function Book() {
                       <div className="text-size-regular text-weight-bold">Limited time offer</div>
                     </div>
                   </div>
-                  <Link href="/book" className="button button-green">
+                  <a href="tel:+18888341049" className="button button-green">
                     <div className="button_body body-hero">
-                      <div className="text-size-small">Book Appointment</div>
+                      <div className="text-size-small">Call Now</div>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={ARROW_BTN} alt="" className="button_arrow" loading="lazy" />
                     </div>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

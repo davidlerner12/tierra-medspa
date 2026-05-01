@@ -1,4 +1,4 @@
-import Link from 'next/link';
+
 
 const ARROW_BTN = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa735_Arrow%20-%20Right%20Up%20(2).svg';
 const LED_IMAGE = 'https://cdn.prod.website-files.com/6756e21effc0cd662fdaa70a/6756e21effc0cd662fdaa769_Frame%20527.png';
@@ -59,13 +59,13 @@ export default function HowItWorks() {
               ))}
             </div>
             <div className="works_button">
-              <Link href="/book" className="button button-green">
+              <a href="tel:+18888341049" className="button button-green">
                 <div className="button_body">
-                  <span className="text-size-small">Book Appointment</span>
+                  <span className="text-size-small">Call Now</span>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={ARROW_BTN} alt="" className="button_arrow" loading="lazy" />
                 </div>
-              </Link>
+              </a>
             </div>
           </div>
 
