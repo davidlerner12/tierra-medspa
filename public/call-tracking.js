@@ -1,9 +1,12 @@
 /**
  * Call Tracking Script — Tierra Med Spa
  * 
- * Intercepts all tel: link clicks site-wide, sends a POST to the Zapier
- * webhook with tracking data (fbclid, phone, url, timestamp), then allows
- * the actual phone call to proceed.
+ * Intercepts all tel: link clicks site-wide, sends a POST to the
+ * server-side proxy at /api/call-track (which forwards to the actual
+ * webhook), then allows the phone call to proceed.
+ *
+ * The webhook URL is NOT in this file — it lives in a server-side
+ * environment variable, keeping it safe from public exposure.
  *
  * Features:
  *  - Event delegation on document (works for dynamically-rendered buttons)
@@ -17,10 +20,11 @@
 (function () {
   'use strict';
 
-  var WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/27092509/u7bnpti/';
+  // Points to our own Next.js API route — no secrets exposed
+  var TRACKING_ENDPOINT = '/api/call-track';
 
   /**
-   * Extract a query-param value from a URL string.
+   * Extract a query-param value from the current URL.
    */
   function getQueryParam(name) {
     try {
@@ -53,34 +57,32 @@
   }
 
   /**
-   * Send the payload to the webhook.
+   * Send the payload to the server-side proxy.
    * Uses navigator.sendBeacon (most reliable for page-unload scenarios)
    * with a fetch + keepalive fallback.
    */
-  function sendWebhook(payload) {
+  function sendTracking(payload) {
     var json = JSON.stringify(payload);
 
     // Primary: sendBeacon — fire-and-forget, survives navigation/unload
     if (navigator.sendBeacon) {
       var blob = new Blob([json], { type: 'application/json' });
-      var queued = navigator.sendBeacon(WEBHOOK_URL, blob);
+      var queued = navigator.sendBeacon(TRACKING_ENDPOINT, blob);
       if (queued) return; // successfully queued
     }
 
     // Fallback: fetch with keepalive
     try {
-      fetch(WEBHOOK_URL, {
+      fetch(TRACKING_ENDPOINT, {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: json,
-        mode: 'no-cors',
-        credentials: 'omit',
         keepalive: true
       }).catch(function () {
         // silently ignore — call must still go through
       });
     } catch (_) {
-      // final fallback: XHR (synchronous as last resort is intentionally avoided
-      // to not block the UI; the call taking priority is more important)
+      // final safety net — the phone call always takes priority
     }
   }
 
@@ -112,8 +114,8 @@
     var phone = parsePhone(anchor.href);
     var payload = buildPayload(phone);
 
-    // Fire the webhook (non-blocking)
-    sendWebhook(payload);
+    // Fire the tracking request (non-blocking)
+    sendTracking(payload);
 
     // Allow the default tel: behavior to proceed — no preventDefault
   }
